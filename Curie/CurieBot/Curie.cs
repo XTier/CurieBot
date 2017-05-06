@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using DataClient.InfluxDb;
 using DataHandling.Core;
@@ -66,25 +67,39 @@ namespace CurieBot
 
         private void Connect()
         {
-            _bot.Connect(_apiToken).Wait();
-
-            Log.Information("Bot has connected to Slack. Chats:");
-            foreach (var chat in _bot.ConnectedChannels)
+            try
             {
-                Log.Information("--" + chat.Name + " " + chat.ID);
+                _bot.Connect(_apiToken).Wait();
+
+                Log.Information("Bot has connected to Slack. Chats:");
+                foreach (var chat in _bot.ConnectedChannels)
+                {
+                    Log.Information("--" + chat.Name + " " + chat.ID);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Unexpected error during bot connection. {ex}");
             }
         }
 
         private async void SendMessage(string message)
         {
             Log.Debug($"Notifying with '{message}'...");
-            var slackMessage = new BotMessage
+            try
             {
-                Text = message,
-                ChatHub = _bot.ConnectedChannels?.First(c => c.ID == _chatId)
-            };
+                var slackMessage = new BotMessage
+                {
+                    Text = message,
+                    ChatHub = _bot.ConnectedChannels.First(c => c.ID == _chatId)
+                };
 
-            await _bot.Say(slackMessage);
+                await _bot.Say(slackMessage);
+            }
+            catch (Exception ex)
+            {
+                Log.Error($"Unexpected error during bot notification. {ex}");
+            }
         }
     }
 }
