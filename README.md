@@ -29,7 +29,7 @@ Copy conf\sample.ini to a file named conf/custom.ini and change the web server p
 Then you will be able to access grafana web ui via http://localhost:8080 using credentials admin/admin
 
 Enable grafana anonymous access in config:
-# enable anonymous access
+enable anonymous access
 enabled = true
 
 Using grafana web ui add InfluxDb datasource (http://localhost:8086 grafana/grafana)
