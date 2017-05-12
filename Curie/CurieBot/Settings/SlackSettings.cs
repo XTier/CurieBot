@@ -8,5 +8,6 @@ namespace CurieBot.Settings
         public string ChatId { get; set; }
         public TimeSpan NotifyPeriod { get; set; }
         public TimeSpan DelayOnErrorTime { get; set; }
+        public int ErrorAttemptsThreshold { get; set; }
     }
 }

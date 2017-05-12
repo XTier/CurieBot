@@ -61,7 +61,7 @@ namespace CurieBot
 
             // provider to notify Slack users
             _dataNotifyProvider = new Notifier(dataContext, settings.SlackSettings);
-            _dataNotifyProvider.NewReadout += msg => SendMessage(msg.ToNiceString());
+            _dataNotifyProvider.NewReadout += msg => SendMessage(msg?.ToNiceString());
             _dataNotifyProvider.Init();
         }
 

@@ -57,15 +57,14 @@
     <Compile Include="TimedCsvDataProvider.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\DataHandling.Core\DataHandling.Core.csproj">
       <Project>{ad9beff7-30b3-41e5-80ff-c847fd2ff8d0}</Project>
       <Name>DataHandling.Core</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

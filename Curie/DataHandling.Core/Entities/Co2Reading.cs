@@ -9,7 +9,7 @@ namespace DataHandling.Core.Entities
             IsSuccess = true;
         }
 
-        public Co2Reading(TimeSpan time, int co2Level, double temperature, bool isSuccess = true, string error = "")
+        public Co2Reading(DateTime time, int co2Level, double temperature, bool isSuccess = true, string error = "")
         {
             Time = time;
             Co2Level = co2Level;
@@ -18,7 +18,7 @@ namespace DataHandling.Core.Entities
             Error = error;
         }
 
-        public TimeSpan Time { get; set; }
+        public DateTime Time { get; set; }
         public int Co2Level { get; set; }
         public double Temperature { get; set; }
 
@@ -27,25 +27,31 @@ namespace DataHandling.Core.Entities
 
         public string ToNiceString()
         {
-            // TODO temperature sign implement correct logic
-            var result = IsSuccess ? $"CO2 level: {Co2Level} ppm, temperature: +{Temperature:##.#} °C" : $"{Error}";
+            var result = IsSuccess ? $"CO2 level: {Co2Level} ppm, temperature: {Sign(Temperature)}{Temperature:##.#} °C" : $"{Error}";
             return result;
         }
 
         public override string ToString()
         {
-            var result = IsSuccess ? $"{Time} {Co2Level} {Temperature}" : $"CO2 readings: {Error}";
+            var result = IsSuccess ? $"{Time.TimeOfDay} {Co2Level} {Temperature}" : $"CO2 readings: {Error}";
             return result;
         }
 
-        public static Co2Reading Create(TimeSpan time, int co2Level, double temperature)
+        private static string Sign(double temperature)
+        {
+            return temperature > 0
+                ? "+"
+                : temperature < 0 ? "-" : string.Empty;
+        }
+
+        public static Co2Reading Create(DateTime time, int co2Level, double temperature)
         {
             return new Co2Reading(time, co2Level, temperature);
         }
 
         public static Co2Reading CreateError(string error)
         {
-            return new Co2Reading(DateTime.UtcNow.TimeOfDay, 0, 0, false, error);
+            return new Co2Reading(DateTime.Now, 0, 0, false, error);          // TODO UTC?
         }
     }
 }

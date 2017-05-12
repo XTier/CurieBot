@@ -36,7 +36,7 @@ namespace DataHandling.Core.Providers
 
         private Co2Reading CreateValue()
         {
-            return Co2Reading.Create(DateTime.Now.TimeOfDay,
+            return Co2Reading.Create(DateTime.Now,
                                      _rng.Next(400, 2000),
                                      _rng.Next(15, 30) + _rng.NextDouble());
         }

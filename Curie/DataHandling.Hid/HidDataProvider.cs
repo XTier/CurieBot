@@ -99,7 +99,7 @@ namespace DataHandling.Hid
                 return Co2Reading.CreateError("No data.");
             }
 
-            return Co2Reading.Create(DateTime.Now.TimeOfDay, measure.Co2Level.Value, measure.Temperature.Value);
+            return Co2Reading.Create(DateTime.Now, measure.Co2Level.Value, measure.Temperature.Value);
         }
 
         private async Task<Measure> ReadFromDevice()

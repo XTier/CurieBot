@@ -31,7 +31,7 @@ namespace DataHandling.Csv
             while (_event.WaitOne())
             {
                 var lastReading = RetrieveValue();
-                if (lastReading.IsSuccess && DateTime.Now.TimeOfDay - lastReading.Time > _dataBreakTime)
+                if (lastReading.IsSuccess && DateTime.Now - lastReading.Time > _dataBreakTime)
                 {
                     Log.Warning("CO2 Readings are outdated.");
                     lastReading = Co2Reading.CreateError("No data");
