@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29318.209
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CurieBot", "CurieBot\CurieBot.csproj", "{1A5A7820-D373-46DF-8B98-D91A66AC336C}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataHandling.Hid", "DataHandling.Hid\DataHandling.Hid.csproj", "{37FDE8CE-2DBA-43C3-BCF6-B5718DE547D1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataClient.InfluxDb", "DataClient.InfluxDb\DataClient.InfluxDb.csproj", "{40E435B2-1FD7-4F2B-A174-C33DE31EC230}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hid.TestApp", "Hid.TestApp\Hid.TestApp.csproj", "{38F4D303-B384-4440-93A5-D1065CC4D8F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,8 +41,15 @@ Global
 		{40E435B2-1FD7-4F2B-A174-C33DE31EC230}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{40E435B2-1FD7-4F2B-A174-C33DE31EC230}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{40E435B2-1FD7-4F2B-A174-C33DE31EC230}.Release|Any CPU.Build.0 = Release|Any CPU
+		{38F4D303-B384-4440-93A5-D1065CC4D8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{38F4D303-B384-4440-93A5-D1065CC4D8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{38F4D303-B384-4440-93A5-D1065CC4D8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{38F4D303-B384-4440-93A5-D1065CC4D8F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5D90A5FA-7C23-40E5-9771-536531601383}
 	EndGlobalSection
 EndGlobal
